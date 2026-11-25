@@ -2,7 +2,7 @@
 
 ## 1. Branding & Identity (`BrandConfig`)
 - **Centralized configuration**: `app/src/main/java/ai/antigem/theme/BrandConfig.kt` holds `productName`, `tagline`, and dynamic theme-linked accent tokens.
-- **Preserved identifiers**: `applicationId` (`ai.antigem` / `ai.antidev` in debug), `android:sharedUserId="${applicationId}"`, signing configuration, `version.json` update channels, and user-data paths (`filesDir/home`, `filesDir/home/projects`) are preserved to avoid breaking existing installations and Termux:API / Termux:X11 shared-UID integration.
+- **Preserved identifiers**: `applicationId` (`ai.cosmic` / `ai.antidev` in debug), `android:sharedUserId="${applicationId}"`, signing configuration, `version.json` update channels, and user-data paths (`filesDir/home`, `filesDir/home/projects`) are preserved to avoid breaking existing installations and Termux:API / Termux:X11 shared-UID integration.
 - **Migration plan**: If `applicationId` is ever changed in a future major release, it requires a new signing key or a one-time data export/import migration (`backup_projects` / `restore_projects`) because Android prohibits in-place updates across different `applicationId` or `sharedUserId` values.
 
 ## 2. Rootless Shared-Storage Gateway (`StorageGateway` & `/storage` MCP)

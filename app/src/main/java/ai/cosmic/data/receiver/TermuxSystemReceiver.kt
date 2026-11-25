@@ -1,0 +1,53 @@
+package ai.cosmic.data.receiver
+
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.widget.Toast
+import ai.cosmic.data.local.TermuxStorageSetupManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import ai.cosmic.i18n.L
+
+open class TermuxSystemReceiver : BroadcastReceiver() {
+
+    override fun onReceive(context: Context, intent: Intent?) {
+        val action = intent?.action ?: return
+
+        when {
+            action.endsWith(".app.request_storage_permissions") || action == "ai.cosmic.app.request_storage_permissions" -> {
+                if (TermuxStorageSetupManager.hasStoragePermission(context)) {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val success = TermuxStorageSetupManager.setupStorageSymlinks(context)
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Toast.makeText(
+                                context,
+                                if (success) L.receiver.termuxSystemReceiver.storageSymlinksSetupInStorage else L.receiver.termuxSystemReceiver.failedSettingUpStorageSymlinks,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                } else {
+                    TermuxStorageSetupManager.requestStoragePermission(context)
+                }
+            }
+            action.endsWith(".app.reload_style") || action == "ai.cosmic.app.reload_style" -> {
+                if (TermuxStorageSetupManager.hasStoragePermission(context)) {
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val success = TermuxStorageSetupManager.setupStorageSymlinks(context)
+                        CoroutineScope(Dispatchers.Main).launch {
+                            Toast.makeText(
+                                context,
+                                if (success) L.receiver.termuxSystemReceiver.storageSymlinksSetupInStorage else L.receiver.termuxSystemReceiver.failedSettingUpStorageSymlinks,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                } else {
+                    TermuxStorageSetupManager.requestStoragePermission(context)
+                }
+            }
+        }
+    }
+}

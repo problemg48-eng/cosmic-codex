@@ -3,7 +3,7 @@ set -euo pipefail
 
 # -----------------------------------------------------------------------------
 # AntiGem APK Build & Output Packager
-# Builds the app (ai.antigem). --x86_64 builds the x86_64 APK instead of the arm64 one (gradle -Pabi=x86_64);
+# Builds the app (ai.cosmic). --x86_64 builds the x86_64 APK instead of the arm64 one (gradle -Pabi=x86_64);
 # --chroot builds the arm64 APK with the Ubuntu chroot's Linux bridge (gradle -Pchroot=true). The normal arm64 release
 # leaves that bridge out; the x86_64 APK always has it. Debug builds have it unless gradle -Pchroot=false.
 # -----------------------------------------------------------------------------

@@ -64,9 +64,9 @@ AntiGem checks whether the local Linux runtime is installed on your phone.
 - Subtitle: *"AntiGem runs its terminal, IDE and agents on a local Linux system. Choose how to install it."*
 - **Option 1: Full environment** (Tag: *"Recommended · ~350 MB"*): *"Verified rootfs with the tools and environment preconfigured."*
 - **Option 2: Minimal** (Tag: *"~33 MB"*): *"Clean Termux base for your device architecture: core utilities and the package manager."*
-- **Option 3: From a ZIP file**: *"A bootstrap backup or custom rootfs on this phone."* (Tap **Choose file** / **Choose another file** to select an archive). This is also how you move from the old `com.termux` build of AntiGem: restore the backup made there (Settings → Backups & Restore → Back up environment). Its `com.termux` paths are rewritten for `ai.antigem` while it is restored.
+- **Option 3: From a ZIP file**: *"A bootstrap backup or custom rootfs on this phone."* (Tap **Choose file** / **Choose another file** to select an archive). This is also how you move from the old `com.termux` build of AntiGem: restore the backup made there (Settings → Backups & Restore → Back up environment). Its `com.termux` paths are rewritten for `ai.cosmic` while it is restored.
 
-The Linux system is made of Termux packages, rewritten for AntiGem's package name (`ai.antigem`) as they are installed. For a full Ubuntu, run `pkg install proot-distro && proot-distro install ubuntu` in the terminal.
+The Linux system is made of Termux packages, rewritten for AntiGem's package name (`ai.cosmic`) as they are installed. For a full Ubuntu, run `pkg install proot-distro && proot-distro install ubuntu` in the terminal.
 
 ### Installation Flow & Buttons:
 - Tap **Install (~350 MB)**, **Install minimal (~33 MB)**, **Install from ZIP**, or **Install Ubuntu base** (standalone).

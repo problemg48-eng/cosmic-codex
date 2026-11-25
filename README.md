@@ -28,15 +28,15 @@
 </div>
 
 > [!IMPORTANT]
-> ### Cosmic Codex has a new home: `ai.antigem`
-> From **v2.0.0**, Cosmic Codex is released under its own package name, **`ai.antigem`**. The old app was installed as `com.termux`, the Termux project's package name, which we used only so Termux packages could run at full speed. Shipping Cosmic Codex under another project's name wasn't right, and it also stopped Cosmic Codex from being installed next to the real Termux app. Cosmic Codex now rewrites `com.termux` to `ai.antigem` inside each package as it installs (both names are 10 characters, so it is swapped byte for byte), with no proot and no slowdown.
+> ### Cosmic Codex has a new home: `ai.cosmic`
+> From **v2.0.0**, Cosmic Codex is released under its own package name, **`ai.cosmic`**. The old app was installed as `com.termux`, the Termux project's package name, which we used only so Termux packages could run at full speed. Shipping Cosmic Codex under another project's name wasn't right, and it also stopped Cosmic Codex from being installed next to the real Termux app. Cosmic Codex now rewrites `com.termux` to `ai.cosmic` inside each package as it installs (both names are 10 characters, so it is swapped byte for byte), with no proot and no slowdown.
 >
-> - **The old app keeps working.** Its last version is **v1.2.1** and it gets no more updates. New features and fixes only come to `ai.antigem`.
+> - **The old app keeps working.** Its last version is **v1.2.1** and it gets no more updates. New features and fixes only come to `ai.cosmic`.
 > - **You can use both.** The new app installs next to the old one; nothing in the old one is touched. Move over whenever you're ready.
 > - **To move your setup:**
 >   1. In the old app: **Settings → Backups & Restore → Back up environment** (tick *Include SSH keys and sign-ins* to keep your logins; never share that file). It is saved to `Download/Antigem/backups`.
 >   2. Install **`AntiGem-v2.x.x.apk`** from [Releases](https://github.com/santoshkurmi/antigem/releases) (version 2.0.0 or newer; versions below 2.0.0 are the old app).
->   3. On the new app's setup screen, choose **From a ZIP file** and pick your backup. Every `com.termux` path is rewritten for `ai.antigem` while it restores.
+>   3. On the new app's setup screen, choose **From a ZIP file** and pick your backup. Every `com.termux` path is rewritten for `ai.cosmic` while it restores.
 >   4. When everything works, uninstall the old app, and delete the backup if it contains your sign-ins.
 >
 > The new app is brand new: a few packages, the Linux desktop (X11) and some `termux-*` commands are still being tested. If something breaks, please [open an issue](https://github.com/santoshkurmi/antigem/issues).
@@ -262,21 +262,21 @@ Use the agents running on your PC from your phone. [Cosmic Codex for VS Code](ht
 
 ## Download
 
-Get the latest APK from [Releases](https://github.com/santoshkurmi/antigem/releases). There is one app, with the package name `ai.antigem`. It sets up its own Linux environment from the Termux packages, so it doesn't need the Termux app, and it can be installed next to it.
+Get the latest APK from [Releases](https://github.com/santoshkurmi/antigem/releases). There is one app, with the package name `ai.cosmic`. It sets up its own Linux environment from the Termux packages, so it doesn't need the Termux app, and it can be installed next to it.
 
 **Server mode** (a mode, not another build): the bridge, the agents (`agy`, Claude Code, OpenCode, Codex), your projects and the terminal run on **your own server (a VPS)**, and the phone is only the screen. Switch it on in **Settings → Where agents run**. See [Server mode](#server-mode-run-it-on-a-vps) below.
 
 > [!NOTE]
-> **Coming from the old `com.termux` build of Cosmic Codex?** Android treats `ai.antigem` as a different app, so your files don't move over by themselves:
+> **Coming from the old `com.termux` build of Cosmic Codex?** Android treats `ai.cosmic` as a different app, so your files don't move over by themselves:
 > 1. In the old app, open **Settings → Backups & Restore → Back up environment**. Tick *Include SSH keys and sign-ins* to keep your logins (never share that file with anyone). The backup is saved to `Download/Antigem/backups/bootrapz_<time>.zip`.
-> 2. Install `ai.antigem`. On its setup screen, choose **From a ZIP file** and pick that backup.
+> 2. Install `ai.cosmic`. On its setup screen, choose **From a ZIP file** and pick that backup.
 > 3. Once everything works, uninstall the old app, and delete the backup if it has your sign-ins.
 
 ### How it runs Termux packages without being `com.termux`
 
-Termux packages are compiled for the fixed path `/data/data/com.termux/files/usr`. Instead of faking that path with **proot** (which slows down every program) or rebuilding every package, Cosmic Codex rewrites `com.termux` to `ai.antigem` in each package when it is installed: in file paths, file contents, symlinks and install scripts. Both names are 10 characters long, so the rewrite changes bytes in place and binaries keep their layout.
+Termux packages are compiled for the fixed path `/data/data/com.termux/files/usr`. Instead of faking that path with **proot** (which slows down every program) or rebuilding every package, Cosmic Codex rewrites `com.termux` to `ai.cosmic` in each package when it is installed: in file paths, file contents, symlinks and install scripts. Both names are 10 characters long, so the rewrite changes bytes in place and binaries keep their layout.
 
-It happens by itself for the bootstrap, for restored backups, for `pkg install` / `apt install` (an apt hook) and for `dpkg -i` (a dpkg wrapper). One Termux file can't be rewritten that way: `am.apk`, the Java code of the `am` command, which Termux builds to send intents as `com.termux`. Cosmic Codex builds it from Termux's own source (the `termux-am` submodule) for `ai.antigem` and puts it in place of Termux's. Everything runs at full native speed from the official Termux repositories. In your home folder only paths are rewritten, so your own files that mention `com.termux` stay as they are.
+It happens by itself for the bootstrap, for restored backups, for `pkg install` / `apt install` (an apt hook) and for `dpkg -i` (a dpkg wrapper). One Termux file can't be rewritten that way: `am.apk`, the Java code of the `am` command, which Termux builds to send intents as `com.termux`. Cosmic Codex builds it from Termux's own source (the `termux-am` submodule) for `ai.cosmic` and puts it in place of Termux's. Everything runs at full native speed from the official Termux repositories. In your home folder only paths are rewritten, so your own files that mention `com.termux` stay as they are.
 
 For a full Ubuntu, install it in the terminal: `pkg install proot-distro && proot-distro install ubuntu`.
 
@@ -308,9 +308,9 @@ For advanced hardware APIs (such as `termux-location`, `termux-camera-photo`, `t
 👉 **[Download Cosmic Codex Termux:API Companion App](https://github.com/Santoshkurmi/termux-api/releases)**
 
 > [!IMPORTANT]
-> The companion app must be Cosmic Codex's build for `ai.antigem`: it shares Cosmic Codex's Linux user (`sharedUserId ai.antigem`) to talk to it over UNIX sockets. Companion apps made for the old `com.termux` build, or the official Termux:API, don't work with it.
+> The companion app must be Cosmic Codex's build for `ai.cosmic`: it shares Cosmic Codex's Linux user (`sharedUserId ai.cosmic`) to talk to it over UNIX sockets. Companion apps made for the old `com.termux` build, or the official Termux:API, don't work with it.
 >
-> **Moving from the old `com.termux` app?** Download the Termux:API companion again from the [releases page](https://github.com/Santoshkurmi/termux-api/releases) and install it for `ai.antigem`. Don't keep using the companion you installed for the old app: it only works with the old app.
+> **Moving from the old `com.termux` app?** Download the Termux:API companion again from the [releases page](https://github.com/Santoshkurmi/termux-api/releases) and install it for `ai.cosmic`. Don't keep using the companion you installed for the old app: it only works with the old app.
 
 **How to enable:** install the companion APK from the [releases page](https://github.com/Santoshkurmi/termux-api/releases), then choose **Cosmic Codex's Termux:API app** in **Settings → Termux Support → Termux:API**. One handler is used at a time: *Built-in* (the default) or the app, which then handles every `termux-*` command. Cosmic Codex's dispatcher and the package's own binary sit side by side (`dpkg-divert`), so switching needs no reinstall, and installing or updating `termux-api` never breaks either of them.
 
@@ -332,7 +332,7 @@ termux-x11 :0 -xstartup "dbus-launch --exit-with-session xfce4-session"
 Then open Termux:X11. Don't install `termux-x11-nightly` from x11-repo: it only works with the official Termux:X11 app.
 
 > [!IMPORTANT]
-> **Moving from the old `com.termux` app?** Download Cosmic Codex's Termux:X11 app and `.deb` again from the [Cosmic Codex Termux:X11 releases](https://github.com/Santoshkurmi/termux-x11/releases/latest) and install them for `ai.antigem`. Don't keep using the Termux:X11 app you installed for the old app: it only works with the old app.
+> **Moving from the old `com.termux` app?** Download Cosmic Codex's Termux:X11 app and `.deb` again from the [Cosmic Codex Termux:X11 releases](https://github.com/Santoshkurmi/termux-x11/releases/latest) and install them for `ai.cosmic`. Don't keep using the Termux:X11 app you installed for the old app: it only works with the old app.
 
 ---
 

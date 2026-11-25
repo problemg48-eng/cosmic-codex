@@ -345,7 +345,7 @@ The rest of section 6 is about **Server mode**.
 | Bridge | **1234** | REST + WebSocket: files, git, chats relay, Claude, plugins |
 | Hub (`agy`) | **1235** | gRPC over HTTP/2: Antigravity chats |
 
-Cosmic Codex (`ai.antigem`) uses **1236 / 1237** by default; the old `com.termux` build used 1234 / 1235. The app shows the numbers under the address boxes and as placeholders in *Ports on the
+Cosmic Codex (`ai.cosmic`) uses **1236 / 1237** by default; the old `com.termux` build used 1234 / 1235. The app shows the numbers under the address boxes and as placeholders in *Ports on the
 server*. Use those numbers wherever this guide says 1234 / 1235.
 
 How the app starts the services depends on the address you type:

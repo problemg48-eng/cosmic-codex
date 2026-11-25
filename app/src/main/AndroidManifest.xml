@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- sharedUserId: Cosmic Codex's own Termux:API and Termux:X11 apps (same signing key) share its files. Adding or removing it
-     later would force users to reinstall, so it stays. It is the app's package name: ai.antigem (release), ai.antidev
+     later would force users to reinstall, so it stays. It is the app's package name: ai.cosmic (release), ai.antidev
      (debug), so the two never claim the same shared user with different signing keys. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -52,7 +52,7 @@
         android:allowBackup="false"
         android:largeHeap="true"
         android:hasFragileUserData="true"
-        android:manageSpaceActivity="ai.antigem.ui.settings.ManageSpaceActivity"
+        android:manageSpaceActivity="ai.cosmic.ui.settings.ManageSpaceActivity"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher"
@@ -213,13 +213,13 @@
 
         <!-- Termux Open Activity (termux-open / termux-open-url / xdg-open activity intent targets) -->
         <activity
-            android:name="ai.antigem.app.TermuxOpenActivity"
+            android:name="ai.cosmic.app.TermuxOpenActivity"
             android:exported="true"
             android:permission="${applicationId}.permission.RUN_COMMAND"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
-                <action android:name="ai.antigem.app.TermuxUrlOpenActivity" />
-                <action android:name="ai.antigem.app.TermuxOpenActivity" />
+                <action android:name="ai.cosmic.app.TermuxUrlOpenActivity" />
+                <action android:name="ai.cosmic.app.TermuxOpenActivity" />
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -228,22 +228,22 @@
 
         <!-- Termux System Receiver (termux-setup-storage, reload_style) -->
         <receiver
-            android:name="ai.antigem.app.TermuxSystemReceiver"
+            android:name="ai.cosmic.app.TermuxSystemReceiver"
             android:exported="true"
             android:permission="${applicationId}.permission.RUN_COMMAND">
             <intent-filter>
-                <action android:name="ai.antigem.app.request_storage_permissions" />
-                <action android:name="ai.antigem.app.reload_style" />
+                <action android:name="ai.cosmic.app.request_storage_permissions" />
+                <action android:name="ai.cosmic.app.reload_style" />
             </intent-filter>
         </receiver>
 
         <!-- Termux Open Receiver (termux-open, termux-open-url, xdg-open) -->
         <receiver
-            android:name="ai.antigem.app.TermuxOpenReceiver"
+            android:name="ai.cosmic.app.TermuxOpenReceiver"
             android:exported="true"
             android:permission="${applicationId}.permission.RUN_COMMAND">
             <intent-filter>
-                <action android:name="ai.antigem.app.TermuxOpenReceiver" />
+                <action android:name="ai.cosmic.app.TermuxOpenReceiver" />
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -256,14 +256,14 @@
             android:exported="true"
             android:permission="${applicationId}.permission.API">
             <intent-filter>
-                <action android:name="ai.antigem.api.ACTION_API" />
-                <action android:name="ai.antigem.api" />
+                <action android:name="ai.cosmic.api.ACTION_API" />
+                <action android:name="ai.cosmic.api" />
             </intent-filter>
         </receiver>
 
         <!-- Termux Service (termux-wake-lock, termux-wake-unlock, termux-service-stop) -->
         <service
-            android:name="ai.antigem.app.TermuxService"
+            android:name="ai.cosmic.app.TermuxService"
             android:enabled="true"
             android:exported="true"
             android:permission="${applicationId}.permission.RUN_COMMAND"
@@ -272,15 +272,15 @@
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="Background terminal and AI language server execution" />
             <intent-filter>
-                <action android:name="ai.antigem.service_wake_lock" />
-                <action android:name="ai.antigem.service_wake_unlock" />
-                <action android:name="ai.antigem.service_stop" />
+                <action android:name="ai.cosmic.service_wake_lock" />
+                <action android:name="ai.cosmic.service_wake_unlock" />
+                <action android:name="ai.cosmic.service_stop" />
             </intent-filter>
         </service>
 
         <!-- Android Automation (android_automation_mcp): screen reading, gestures and screenshots -->
         <service
-            android:name="ai.antigem.data.automation.AutomationAccessibilityService"
+            android:name="ai.cosmic.data.automation.AutomationAccessibilityService"
             android:label="@string/accessibility_service_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="true">
@@ -294,19 +294,19 @@
 
         <!-- Jarvis hands-free mode: keeps the microphone available while it listens for the wake phrase -->
         <service
-            android:name="ai.antigem.data.jarvis.JarvisService"
+            android:name="ai.cosmic.data.jarvis.JarvisService"
             android:exported="false"
             android:foregroundServiceType="microphone" />
 
         <!-- Antigravity voice call: keeps the microphone available while a call runs in the background -->
         <service
-            android:name="ai.antigem.data.voice.AgyVoiceCallService"
+            android:name="ai.cosmic.data.voice.AgyVoiceCallService"
             android:exported="false"
             android:foregroundServiceType="microphone" />
 
         <!-- Jarvis Quick Settings tile: tap to talk from anywhere -->
         <service
-            android:name="ai.antigem.data.jarvis.JarvisTileService"
+            android:name="ai.cosmic.data.jarvis.JarvisTileService"
             android:exported="true"
             android:icon="@drawable/ic_jarvis_mic"
             android:label="Jarvis"
@@ -318,7 +318,7 @@
 
         <!-- Jarvis tile / shortcut: invisible screen that starts Jarvis listening while it is in front, then closes -->
         <activity
-            android:name="ai.antigem.data.jarvis.JarvisTalkActivity"
+            android:name="ai.cosmic.data.jarvis.JarvisTalkActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:excludeFromRecents="true"
@@ -328,7 +328,7 @@
 
         <!-- Voice call Quick Settings tile: one tap calls Antigravity in the last chat that had a call -->
         <service
-            android:name="ai.antigem.data.voice.VoiceCallTileService"
+            android:name="ai.cosmic.data.voice.VoiceCallTileService"
             android:exported="true"
             android:icon="@drawable/ic_voice_call"
             android:label="Voice call"
@@ -340,7 +340,7 @@
 
         <!-- Voice call tile / shortcut: invisible screen that starts the call while it is in front, then closes -->
         <activity
-            android:name="ai.antigem.data.voice.VoiceCallLaunchActivity"
+            android:name="ai.cosmic.data.voice.VoiceCallLaunchActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:excludeFromRecents="true"
@@ -351,7 +351,7 @@
         <!-- Home screen: every shortcut, app-icon menu entry and widget tap opens this invisible screen with an
              antigem:// link; it hands it on and closes. Exported for Android 7 launchers; scripts need the app's key. -->
         <activity
-            android:name="ai.antigem.data.homescreen.HomeLaunchActivity"
+            android:name="ai.cosmic.data.homescreen.HomeLaunchActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:excludeFromRecents="true"
@@ -361,7 +361,7 @@
 
         <!-- A widget's setup screen (when it is placed, and from its settings on Android 12+) -->
         <activity
-            android:name="ai.antigem.ui.homescreen.WidgetConfigActivity"
+            android:name="ai.cosmic.ui.homescreen.WidgetConfigActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:taskAffinity="${applicationId}.widgetconfig"
@@ -374,7 +374,7 @@
 
         <!-- Home-screen widgets: Chats, Quick actions, One chat, Scripts -->
         <receiver
-            android:name="ai.antigem.ui.homescreen.ChatsWidgetReceiver"
+            android:name="ai.cosmic.ui.homescreen.ChatsWidgetReceiver"
             android:exported="true"
             android:label="@string/widget_chats_label">
             <intent-filter>
@@ -385,7 +385,7 @@
                 android:resource="@xml/widget_chats_info" />
         </receiver>
         <receiver
-            android:name="ai.antigem.ui.homescreen.ActionsWidgetReceiver"
+            android:name="ai.cosmic.ui.homescreen.ActionsWidgetReceiver"
             android:exported="true"
             android:label="@string/widget_actions_label">
             <intent-filter>
@@ -396,7 +396,7 @@
                 android:resource="@xml/widget_actions_info" />
         </receiver>
         <receiver
-            android:name="ai.antigem.ui.homescreen.ChatWidgetReceiver"
+            android:name="ai.cosmic.ui.homescreen.ChatWidgetReceiver"
             android:exported="true"
             android:label="@string/widget_chat_label">
             <intent-filter>
@@ -407,7 +407,7 @@
                 android:resource="@xml/widget_chat_info" />
         </receiver>
         <receiver
-            android:name="ai.antigem.ui.homescreen.ScriptsWidgetReceiver"
+            android:name="ai.cosmic.ui.homescreen.ScriptsWidgetReceiver"
             android:exported="true"
             android:label="@string/widget_scripts_label">
             <intent-filter>
@@ -419,12 +419,12 @@
         </receiver>
         <!-- A One chat widget placed from the app: the launcher tells which widget it became -->
         <receiver
-            android:name="ai.antigem.ui.homescreen.HomeWidgetPinReceiver"
+            android:name="ai.cosmic.ui.homescreen.HomeWidgetPinReceiver"
             android:exported="false" />
 
         <!-- Holds the ADB pairing notification (code entry) while the user is in Developer options -->
         <service
-            android:name="ai.antigem.data.adb.AdbPairingService"
+            android:name="ai.cosmic.data.adb.AdbPairingService"
             android:exported="false"
             android:foregroundServiceType="specialUse">
             <property
@@ -442,7 +442,7 @@
             android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
 
         <provider
-            android:name="ai.antigem.data.files.AntiGemFileProvider"
+            android:name="ai.cosmic.data.files.AntiGemFileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
@@ -454,7 +454,7 @@
         <!-- Cosmic Codex's home (and the Ubuntu chroot's) in Android's file picker and Files app. Only the system picker
              (MANAGE_DOCUMENTS) can browse it; Settings → Files in other apps disables this component. -->
         <provider
-            android:name="ai.antigem.data.files.AntiGemDocumentsProvider"
+            android:name="ai.cosmic.data.files.AntiGemDocumentsProvider"
             android:authorities="${applicationId}.documents"
             android:exported="true"
             android:grantUriPermissions="true"
@@ -467,20 +467,20 @@
         <!-- Mini Apps: the launcher grid, each app's root page (its own task / Recents card, one per app id via the
              data URI) and pushed pages (same task as their root) -->
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppsActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppsActivity"
             android:exported="true"
             android:theme="@style/Theme.AntiGem.MiniApp"
             android:configChanges="uiMode|orientation|screenSize|screenLayout|smallestScreenSize" />
         <!-- "Get apps": the mini apps of Cosmic Codex's GitHub catalog -->
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppStoreActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppStoreActivity"
             android:exported="false"
             android:theme="@style/Theme.AntiGem.MiniApp"
             android:configChanges="uiMode|orientation|screenSize|screenLayout|smallestScreenSize" />
         <!-- The mini app installer (like Android's for .apk): opening an .agapp from any app (WhatsApp, Telegram, Gmail,
              Files, a browser's downloads, Cosmic Codex's file explorer) shows the install / update screen over that app -->
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppInstallActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppInstallActivity"
             android:exported="true"
             android:label="Mini app installer"
             android:excludeFromRecents="true"
@@ -535,21 +535,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppActivity"
             android:exported="false"
             android:documentLaunchMode="intoExisting"
             android:theme="@style/Theme.AntiGem.MiniApp"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="uiMode|orientation|screenSize|screenLayout|smallestScreenSize|keyboard|keyboardHidden|density|fontScale" />
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppPageActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppPageActivity"
             android:exported="false"
             android:theme="@style/Theme.AntiGem.MiniApp"
             android:windowSoftInputMode="stateHidden|adjustResize"
             android:configChanges="uiMode|orientation|screenSize|screenLayout|smallestScreenSize|keyboard|keyboardHidden|density|fontScale" />
         <!-- Mini app home-screen shortcuts and notification taps: bring the app forward as it was (or start it) -->
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppLaunchActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppLaunchActivity"
             android:exported="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
@@ -565,7 +565,7 @@
         </activity>
         <!-- "Mini app" in Android's share sheet: send text, links and files to a mini app that accepts them -->
         <activity
-            android:name="ai.antigem.ui.miniapps.MiniAppShareActivity"
+            android:name="ai.cosmic.ui.miniapps.MiniAppShareActivity"
             android:exported="true"
             android:label="Mini app"
             android:excludeFromRecents="true"
@@ -581,15 +581,15 @@
         </activity>
         <!-- Mini app notification buttons that don't open the app, inline replies, swipe-away -->
         <receiver
-            android:name="ai.antigem.data.miniapps.MiniAppNotificationReceiver"
+            android:name="ai.cosmic.data.miniapps.MiniAppNotificationReceiver"
             android:exported="false" />
         <!-- Mini app reminders and exact-time background tasks -->
         <receiver
-            android:name="ai.antigem.data.miniapps.MiniAppAlarmReceiver"
+            android:name="ai.cosmic.data.miniapps.MiniAppAlarmReceiver"
             android:exported="false" />
         <!-- Android drops alarms on reboot (and shifts them on clock / time-zone changes): set them again -->
         <receiver
-            android:name="ai.antigem.data.miniapps.MiniAppBootReceiver"
+            android:name="ai.cosmic.data.miniapps.MiniAppBootReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -601,7 +601,7 @@
 
         <!-- Manage Space Activity (Clear Storage Interceptor) -->
         <activity
-            android:name="ai.antigem.ui.settings.ManageSpaceActivity"
+            android:name="ai.cosmic.ui.settings.ManageSpaceActivity"
             android:exported="true"
             android:label="AntiGem Space Manager"
             android:theme="@style/Theme.Gemini">
@@ -613,7 +613,7 @@
 
         <!-- Device Admin Receiver for Accidental Uninstall Protection -->
         <receiver
-            android:name="ai.antigem.data.admin.AntiGemDeviceAdminReceiver"
+            android:name="ai.cosmic.data.admin.AntiGemDeviceAdminReceiver"
             android:permission="android.permission.BIND_DEVICE_ADMIN"
             android:exported="true">
             <meta-data
@@ -624,7 +624,7 @@
             </intent-filter>
         </receiver>
         <service
-            android:name="ai.antigem.data.dol.DolOverlayService"
+            android:name="ai.cosmic.data.dol.DolOverlayService"
             android:exported="false" />
     </application>
 

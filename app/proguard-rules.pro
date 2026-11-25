@@ -91,4 +91,4 @@
 -keep class * extends androidx.room.RoomDatabase { <init>(); }
 
 # Shizuku starts this class by name (from this APK) in a process of its own
--keep class ai.antigem.data.adb.DeviceShellService { <init>(...); }
+-keep class ai.cosmic.data.adb.DeviceShellService { <init>(...); }

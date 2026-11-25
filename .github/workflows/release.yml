@@ -22,7 +22,7 @@ jobs:
           # full history: the app's "What's new" page is generated from every commit of version.json
           fetch-depth: 0
 
-      # termux-am (termux/TermuxAm): am.apk is built from it for ai.antigem. Only this submodule: the build does not
+      # termux-am (termux/TermuxAm): am.apk is built from it for ai.cosmic. Only this submodule: the build does not
       # need the others (termux-api, termux-x11, antigem-vscode, antigem-chrome-extension, antigem_mini_apps,
       # antigem_plugins).
       - name: Fetch the termux-am submodule

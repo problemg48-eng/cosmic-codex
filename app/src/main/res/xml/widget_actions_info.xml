@@ -12,5 +12,5 @@
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
     android:updatePeriodMillis="0"
-    android:configure="ai.antigem.ui.homescreen.WidgetConfigActivity"
+    android:configure="ai.cosmic.ui.homescreen.WidgetConfigActivity"
     android:widgetFeatures="reconfigurable|configuration_optional" />

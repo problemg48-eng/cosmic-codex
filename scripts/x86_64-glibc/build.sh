@@ -3,7 +3,7 @@
 # bundle the app ships, app/src/abi/x86_64/assets/glibc-min-x86_64.tar.xz, as glibc/lib/libantigem_sigsys.so.
 # Needs gcc for x86_64 Linux (the library uses no libc, so any version works). Run it after changing the C file.
 #
-#   SIGSYS_LOG=/data/data/ai.antigem/files/usr/tmp/sigsys.log scripts/x86_64-glibc/build.sh
+#   SIGSYS_LOG=/data/data/ai.cosmic/files/usr/tmp/sigsys.log scripts/x86_64-glibc/build.sh
 # instead builds a test copy (libantigem_sigsys-log.so here, not put in the bundle) that writes every rewritten call
 # ("<syscall number> -> <result>") to that file on the device.
 set -euo pipefail

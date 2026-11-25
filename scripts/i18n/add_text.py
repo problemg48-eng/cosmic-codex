@@ -11,7 +11,7 @@ Adds an English text for a Kotlin file and prints the accessor to use.
     --to FILE.json    write to this JSON object instead of en.json (merged later)
 
 The same text in the same file reuses its key. {placeholders} become the accessor's parameters, in order of first use.
-Then use the printed accessor in the code and add `import ai.antigem.i18n.L` if the file lacks it.
+Then use the printed accessor in the code and add `import ai.cosmic.i18n.L` if the file lacks it.
 """
 import json
 import os

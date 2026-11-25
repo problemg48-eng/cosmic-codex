@@ -194,7 +194,7 @@ Rules of thumb:
 6. **Full output schemas**: leave off.
 7. **Save**, then restart the server in the agent's MCP settings (or start a new chat).
 
-**Another agent, or by hand:** add a stdio (local command) MCP server with the command `/data/data/ai.antigem/files/usr/bin/rea-mcp` and the environment variables `REA_MODE=lazy` (on demand; `direct` for every tool) and `REA_GROUPS` (`all`, or group ids such as `core,android`). Step 4 on the REA page shows them with copy buttons.
+**Another agent, or by hand:** add a stdio (local command) MCP server with the command `/data/data/ai.cosmic/files/usr/bin/rea-mcp` and the environment variables `REA_MODE=lazy` (on demand; `direct` for every tool) and `REA_GROUPS` (`all`, or group ids such as `core,android`). Step 4 on the REA page shows them with copy buttons.
 
 ---
 

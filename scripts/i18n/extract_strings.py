@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Moves hardcoded UI texts of the Android app into app/src/main/assets/i18n/en.json and replaces them with the
-generated accessors (ai.antigem.i18n.L, see GenerateStringsTask in app/build.gradle.kts):
+generated accessors (ai.cosmic.i18n.L, see GenerateStringsTask in app/build.gradle.kts):
 
     Text("Delete \"${entry.title}\"?")   ->   Text(L.settings.globalContext.deleteTitle(entry.title))
 
@@ -905,8 +905,8 @@ def prune():
         for chain in re.findall(r'\bL\.([a-z][A-Za-z0-9]*(?:\.[a-z][A-Za-z0-9]*)+)', src):
             segs = chain.split('.')
             used |= {'.'.join(segs[:n]) for n in range(2, len(segs) + 1)}
-        if 'import ai.antigem.i18n.L\n' in src and not re.search(r'\bL\.[a-z]', src.replace('import ai.antigem.i18n.L\n', '')):
-            open(p, 'w', encoding='utf-8').write(src.replace('import ai.antigem.i18n.L\n', ''))
+        if 'import ai.cosmic.i18n.L\n' in src and not re.search(r'\bL\.[a-z]', src.replace('import ai.cosmic.i18n.L\n', '')):
+            open(p, 'w', encoding='utf-8').write(src.replace('import ai.cosmic.i18n.L\n', ''))
             print('unused import removed: %s' % os.path.relpath(p, ROOT))
     en = json.load(open(EN_JSON, encoding='utf-8'), object_pairs_hook=OrderedDict)
     keep = OrderedDict((k, v) for k, v in en['strings'].items() if k in used or any(u.startswith(k + '.') for u in ()) )
@@ -1027,15 +1027,15 @@ def main():
             if c.args:
                 call += '(%s)' % ', '.join(e.strip() for _, e in c.args)
             src = src[:c.start] + call + src[c.end:]
-        if 'import ai.antigem.i18n.L\n' not in src and not re.match(r'\s*package ai\.antigem\.i18n\b', src):
+        if 'import ai.cosmic.i18n.L\n' not in src and not re.match(r'\s*package ai\.antigem\.i18n\b', src):
             imports = list(re.finditer(r'^import [^\n]+\n', src, re.M))
             if imports:
                 at = imports[-1].end()
-                src = src[:at] + 'import ai.antigem.i18n.L\n' + src[at:]
+                src = src[:at] + 'import ai.cosmic.i18n.L\n' + src[at:]
             else:
                 m = re.search(r'^package [^\n]+\n', src, re.M)
                 at = m.end() if m else 0
-                src = src[:at] + '\nimport ai.antigem.i18n.L\n' + src[at:]
+                src = src[:at] + '\nimport ai.cosmic.i18n.L\n' + src[at:]
         with open(p, 'w', encoding='utf-8') as f:
             f.write(src)
         changed += 1

@@ -457,7 +457,7 @@ Allows AI agents to interact with your phone's Android operating system (inspect
 Bridges Android hardware capabilities (battery level, camera, clipboard, notifications, vibrate, location) to command-line shell scripts.
 ### Modes (one at a time):
 1. **Built-in** (Default, *No app needed*): AntiGem handles clipboard, toast, torch, vibration, text to speech, battery, volume and notifications. Other commands (location, camera, sensors, SMS, …) say they need AntiGem's Termux:API app.
-2. **AntiGem's Termux:API app**: every `termux-*` command goes to the app (`ai.antigem.api`, built for AntiGem and sharing its Linux user). It can be chosen once the app is installed; if it is removed later, the commands say so until it is installed again or Built-in is chosen.
+2. **AntiGem's Termux:API app**: every `termux-*` command goes to the app (`ai.cosmic.api`, built for AntiGem and sharing its Linux user). It can be chosen once the app is installed; if it is removed later, the commands say so until it is installed again or Built-in is chosen.
 ### Status:
 - **termux-api package**: the `termux-*` commands themselves. AntiGem installs it during setup (or on the next start of an older install); **Install** runs `pkg install termux-api` when it is missing.
 - **AntiGem's Termux:API app**: installed or not; **Get the app** opens its releases page.
