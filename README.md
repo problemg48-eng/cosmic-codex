@@ -1,25 +1,29 @@
 <div align="center">
 
-<img src="docs/readme/icon.svg" alt="Cosmic Codex app icon" width="112">
+<img src="docs/readme/icon.jpg" alt="Cosmic Codex logo" width="180">
 
 # Cosmic Codex
 
-*A gem that defies gravity. A full coding environment, light enough to carry in your pocket.*
+*Your AI-Powered Cosmic Development Platform — a full coding environment, light enough to carry in your pocket.*
 
 **An AI coding workspace for Android: Antigravity, Claude Code, OpenCode and Codex agents, a real Linux terminal, a code editor and a browser the agent can control, all in one app.**
 
 [![Kotlin](https://img.shields.io/badge/Kotlin-Jetpack%20Compose-7F52FF?style=flat-square&logo=kotlin&logoColor=white)](https://developer.android.com/jetpack/compose)
 [![Go](https://img.shields.io/badge/Bridge-Go-00ADD8?style=flat-square&logo=go&logoColor=white)](https://go.dev)
 [![License](https://img.shields.io/badge/License-GPLv3-blue?style=flat-square)](LICENSE)
-[![Releases](https://img.shields.io/github/v/release/santoshkurmi/antigem?style=flat-square&label=Download)](https://github.com/santoshkurmi/antigem/releases)
+[![Releases](https://img.shields.io/github/v/release/problemg48-eng/cosmic-codex?style=flat-square&label=Download)](https://github.com/problemg48-eng/cosmic-codex/releases)
 
-[Download](https://github.com/santoshkurmi/antigem/releases) · [Website](https://santoshkurmi.github.io/antigem/) · [Docs & guides](https://santoshkurmi.github.io/antigem/docs/) · [VS Code extension](https://github.com/Santoshkurmi/antigem_vscode_extension) · [Plugin SDK](extension_docs/README.md) · [User Guide](user_docs/README.md) · [Discord](https://discord.gg/pJvvTDTc6G) · [WhatsApp community](https://chat.whatsapp.com/IGQX8q9zSVV0RarG70sclV?s=cl&p=a&mlu=4&ilr=4)
+[Download](https://github.com/problemg48-eng/cosmic-codex/releases) · [Plugin SDK](extension_docs/README.md) · [User Guide](user_docs/README.md) · [Discord](https://discord.gg/pJvvTDTc6G) · [WhatsApp community](https://chat.whatsapp.com/IGQX8q9zSVV0RarG70sclV?s=cl&p=a&mlu=4&ilr=4)
 
 <br>
 
-[![Join the Cosmic Codex Discord](https://img.shields.io/badge/Join%20the%20AntiGem%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/pJvvTDTc6G)
+[![Join the Cosmic Codex Discord](https://img.shields.io/badge/Join%20the%20Cosmic%20Codex%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/pJvvTDTc6G)
 
 **Get help, share what you build, request features and hear about new releases first.**
+
+<br>
+
+<img src="docs/readme/mascot.png" alt="Cosmic Codex mascot DOL" width="220">
 
 <br>
 
