@@ -680,7 +680,7 @@ fun SettingsDialog(
 
                     SettingsSection.PERMISSIONS -> PermissionsScreen(
                         cardBg = cardBg,
-                        cardBorder = cardBorder
+                        cardBorder = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
                     )
 
                     SettingsSection.COMMANDS -> CommandsSubScreen(

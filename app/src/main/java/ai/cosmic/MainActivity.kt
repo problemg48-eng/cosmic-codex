@@ -10,9 +10,20 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.ime
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.ChatBubbleOutline
+import androidx.compose.material.icons.outlined.Code
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.RocketLaunch
+import androidx.compose.material.icons.outlined.SmartToy
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
@@ -138,11 +149,11 @@ class MainActivity : ComponentActivity() {
 
             val requestedMode by chatViewModel.requestedViewMode.collectAsState()
             LaunchedEffect(Unit) {
-                ai.cosmic.theme.BrandConfig.init(context)
-                ai.cosmic.data.storage.PermissionManager.refresh(context)
-                ai.cosmic.data.orchestration.AutonomousTaskEngine.init(context)
-                ai.cosmic.data.dol.DolCoordinator.start(context)
-                ai.cosmic.data.dol.DolOverlayManager.init(context)
+                ai.cosmic.theme.BrandConfig.init(this@MainActivity)
+                ai.cosmic.data.storage.PermissionManager.refresh(this@MainActivity)
+                ai.cosmic.data.orchestration.AutonomousTaskEngine.init(this@MainActivity)
+                ai.cosmic.data.dol.DolCoordinator.start(this@MainActivity)
+                ai.cosmic.data.dol.DolOverlayManager.init(this@MainActivity)
             }
             val initialViewMode = remember {
                 when (chatViewModel.requestedViewMode.value) {

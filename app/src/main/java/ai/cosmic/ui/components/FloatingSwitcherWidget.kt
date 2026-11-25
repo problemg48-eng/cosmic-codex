@@ -26,9 +26,12 @@ import androidx.compose.material.icons.outlined.ExpandLess
 import androidx.compose.material.icons.outlined.ExpandMore
 import androidx.compose.material.icons.outlined.FolderOpen
 import androidx.compose.material.icons.outlined.GridView
+import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Hub
 import androidx.compose.material.icons.outlined.Layers
 import androidx.compose.material.icons.outlined.PlayCircle
+import androidx.compose.material.icons.outlined.RocketLaunch
+import androidx.compose.material.icons.outlined.SmartToy
 import androidx.compose.material.icons.outlined.Language
 import androidx.compose.material.icons.outlined.Terminal
 import androidx.compose.material.icons.outlined.Widgets

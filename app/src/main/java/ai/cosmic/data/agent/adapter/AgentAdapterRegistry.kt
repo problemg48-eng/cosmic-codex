@@ -282,8 +282,8 @@ private class BuiltInBridgeAdapter(
 
     override suspend fun refreshStatus(context: Context): AgentDescriptor = withContext(Dispatchers.IO) {
         val bin = if (binaryNames.isNotEmpty()) AgentAdapterRegistry.findBinary(context, binaryNames) else null
-        val bridgeOnline = ai.cosmic.data.local.LocalServerManager.status.value ==
-            ai.cosmic.data.local.LocalServerStatus.RUNNING
+        val bridgeOnline = ai.cosmic.data.local.LocalServerManager.status.value is
+            ai.cosmic.data.local.LocalServerStatus.Running
         val installStatus = when {
             chatKind == AgentKind.AGY -> AgentInstallStatus.INSTALLED
             bin != null -> AgentInstallStatus.INSTALLED

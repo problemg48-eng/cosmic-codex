@@ -191,10 +191,10 @@ object AutonomousTaskEngine {
                                 "Agent ${step.assignedAgentId} requests permission to execute step ${step.index}"
                             )
                             val approved = UserConfirm.ask(
+                                context = appContext,
                                 title = "Approve ${step.role.label} Step",
                                 message = "${step.title}\n\nAgent: ${step.assignedAgentId}\nWorkspace: ${currentTask.projectPath}",
-                                allowLabel = "Approve Step",
-                                denyLabel = "Cancel Mission"
+                                confirmLabel = "Approve Step"
                             )
                             if (!approved) {
                                 cancelTask(appContext, taskId)
