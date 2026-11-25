@@ -15,7 +15,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: recursive
+          submodules: false
+
+      - name: Checkout required submodules only
+        run: |
+          git submodule update --init --depth=1 termux-am termux-api termux-x11 || true
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
